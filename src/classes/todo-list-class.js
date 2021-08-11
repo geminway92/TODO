@@ -1,6 +1,6 @@
 import { Todo } from "./todo.class";
 import { footerMostrar, marcador } from "../js/componentes.js";
-import { todoList } from "..";
+
 
 
 
@@ -85,7 +85,7 @@ export class TodoList {
     actualizarMarcador( ) {
         const comprobarPendientes = this.todos.filter( todo => todo.completado == false);
         marcador.innerHTML = comprobarPendientes.length;
-        console.log(comprobarPendientes);
+        // console.log(comprobarPendientes);
     }
 }
 

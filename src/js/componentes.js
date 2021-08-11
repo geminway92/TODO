@@ -13,7 +13,6 @@ export const marcador        = document.querySelector('strong');
 
 
 
-
 export const crearTodoHtml = ( todo) => {
 
     const htmlTodo = `
@@ -58,7 +57,9 @@ divTodoList.addEventListener('click', ( event) => {
 
     if (nombreElemento.includes('input')) { //click en el check
         todoList.marcarCompletado( todoId );
-        todoElemento.classList.toggle('completed')
+        todoElemento.classList.toggle('completed');
+        todoList.actualizarMarcador( todoId);
+        
 
     } else if( nombreElemento.includes('button') ) { // hay que borrar el todo
 
