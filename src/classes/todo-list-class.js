@@ -1,23 +1,35 @@
 import { Todo } from "./todo.class";
+import { footerMostrar, marcador } from "../js/componentes.js";
+import { todoList } from "..";
 
 
 
 export class TodoList {
+    
 
     constructor() {
-
+        
         // this.todos = [];
-        this.cargarLocalStorage()
+        this.cargarLocalStorage();
+        this.mostrarFooter();
+        this.actualizarMarcador();
+        
+       
     }
 
     nuevoTodo( todo) {
         this.todos.push(todo );
+        this.mostrarFooter();
+        this.actualizarMarcador();
         this.guardarLocalStorage();
+        
     }
     
     eliminarTodo( id ) {
 
         this.todos = this.todos.filter( todo => todo.id != id );
+        this.mostrarFooter(),
+        this.actualizarMarcador();
         this.guardarLocalStorage();
     }
 
@@ -61,4 +73,19 @@ export class TodoList {
         this.todos = this.todos.map( Todo.fromJson);
     }
 
+    
+    mostrarFooter( ){
+        if(this.todos.length > 0 ) {
+        footerMostrar.classList.remove('hidden');
+        } else {
+            footerMostrar.classList.add('hidden');
+        }
+    }
+   
+    actualizarMarcador( ) {
+        const comprobarPendientes = this.todos.filter( todo => todo.completado == false);
+        marcador.innerHTML = comprobarPendientes.length;
+        console.log(comprobarPendientes);
+    }
 }
+

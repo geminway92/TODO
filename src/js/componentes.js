@@ -7,6 +7,12 @@ const txtInput    = document.querySelector('.new-todo');
 const btnBorrar    = document.querySelector('.clear-completed');
 const ulFiltros      = document.querySelector('.filters');
 const anchorFiltros  = document.querySelectorAll('.filtro');
+export const footerMostrar  = document.querySelector('footer');
+export const marcador        = document.querySelector('strong');
+
+
+
+
 
 export const crearTodoHtml = ( todo) => {
 
@@ -28,6 +34,7 @@ export const crearTodoHtml = ( todo) => {
     return div.firstElementChild;
 
 }
+
 
 // Eventos 
 txtInput.addEventListener('keyup', ( event ) => {
@@ -91,7 +98,7 @@ ulFiltros.addEventListener('click', (event) =>{
         
         elemento.classList.remove('hidden');
         const completado = elemento.classList.contains('completed');
-
+        
         switch( filtro ) {
 
             case 'Pendientes':
@@ -109,3 +116,7 @@ ulFiltros.addEventListener('click', (event) =>{
         }
     }
 });
+
+
+
+
